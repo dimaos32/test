@@ -1,0 +1,38 @@
+---
+// ИМПОРТИРУЕМ TS ФАЙЛЫ!
+import indexCSS from '../../shared/styles/index.scss?url'
+import templateCSS from '../../shared/styles/template.scss?url'
+
+import indexTS from '../../shared/scripts/index.ts?url'
+import templateTS from '../../shared/scripts/template.ts?url'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href={indexCSS} />
+    <link rel="stylesheet" href={templateCSS} />
+
+    <title>{title}</title>
+  </head>
+  <body class="is-loading">
+    <slot />
+
+    <!-- Подключаем TS СКРИПТЫ! -->
+    <script is:inline src={indexTS} type="module"></script>
+    <script is:inline src={templateTS} type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+---
+import Container from '@components/Container/Container'
+import Modal from '@components/Modal/Modal'
+import MainLayout from '@layouts/Main/Main'
+import Button from '@ui/Button/Button'
+import Picture from '@ui/Picture/Picture'
+---
+
+<MainLayout title="Главная">
+  <Container>
+    <Picture
+      name="mountain"
+      alt="Example image"
+      type="jpg"
+      formats={['jpg', 'webp']}
+      width={1920}
+    />
+    <p>hello</p>
+    <Button text="Стандартная модалка" modal="example" />
+  </Container>
+
+  <Fragment slot="modals">
+    <Modal name="example">
+      <h1>Example modal</h1>
+    </Modal>
+  </Fragment>
+</MainLayout>

@@ -1,0 +1,28 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*.astro"],
+      "@layouts/*": ["src/layouts/*.astro"],
+      "@modules/*": ["src/modules/*.astro"],
+      "@ui/*": ["src/ui/*.astro"],
+      "@images/*": ["src/shared//images/*"],
+      "@types": ["types"],
+      "@shared/*": ["src/shared/*"],
+      "@scripts/*": ["src/shared/scripts/*"],
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ],
+    "verbatimModuleSyntax": true
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "public",
+    "util"
+  ]
+}
